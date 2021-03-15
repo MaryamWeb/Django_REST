@@ -2,10 +2,10 @@ from django.db import models
 
 # Create your models here.
 class Hotel(models.Model):
-    hotelName   = models.CharField(max_length=20) 
+    hotelName   = models.CharField(max_length=30) 
+    country     = models.CharField(max_length=20)
     city        = models.CharField(max_length=20)
-    checkIn     = models.DateField()
-    checkOut    = models.TimeField()
+    hotelPhone  = models.CharField(max_length=10)
     created_at  = models.DateTimeField(auto_now_add=True)
     updated_at  = models.DateTimeField(auto_now=True)
     #blank=True --> allow blank fields
@@ -17,7 +17,7 @@ class Hotel(models.Model):
 class Guest(models.Model):
     firstName   = models.CharField(max_length=20)
     lastName    = models.CharField(max_length=20)
-    email       = models.CharField(max_length=20)
+    email       = models.EmailField(unique=True)
     phone       = models.CharField(max_length=10)
     created_at  = models.DateTimeField(auto_now_add=True)
     updated_at  = models.DateTimeField(auto_now=True)

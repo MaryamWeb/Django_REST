@@ -25,5 +25,6 @@ router.register('reservations',views.ReservationViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include(router.urls))
+    path('api/',include(router.urls)),
+    path('api/findHotels/',views.find_hotels)
 ]
